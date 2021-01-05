@@ -83,7 +83,7 @@ This algorithm grows exponentially and is very slow.
 ### In-class Exercise 2
 
 #### Question: In how many different ways to cover a (2^n)x(2^n) grid with one missing square at the corner?
-Break down into four pieces of (2^n-1)x(2^n-1). One of the piece containing a tile is identical to the one-step smaller problem with a (2^n-1)x(2^n-1) grid. Then with the remaining three chuncks, you can fill them out and collect the three empty tiles to create a block. 
+Break down into four pieces of (2^n-1)x(2^n-1). One of the piece containing a tile is identical to the one-step smaller problem (sub-problem) with a (2^n-1)x(2^n-1) grid. Then with the remaining three chuncks, you can fill them out and collect the three empty tiles to create a block. 
 
 ``` 
 Algorithm:
