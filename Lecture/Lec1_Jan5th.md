@@ -1,4 +1,5 @@
-### 01/05/2021 Lecture 1 - Logistics & Course Overview
+### 01/05/2021
+### Lecture 1 - Logistics & Course Overview
 
 #### Key Concepts
 
@@ -17,3 +18,6 @@
 #### Recursion
 
 Motivation: can we reuse a small solution to solve a bigger problem?
+Prompt: To solve problem x on input of size n
+(1) if n is 'small,' solve it directly.
+(2) Otherwise, reduce the problem to smaller size problems of the same type.
