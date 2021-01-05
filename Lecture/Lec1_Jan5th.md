@@ -13,3 +13,7 @@
 4. Network Flows
 5. Linear Programming Algorithms
 6. Approximation Algorithms  
+
+#### Recursion
+
+Motivation: can we reuse a small solution to solve a bigger problem?
