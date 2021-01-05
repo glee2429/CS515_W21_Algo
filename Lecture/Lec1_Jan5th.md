@@ -33,3 +33,8 @@ max(A[1..n]) # Assume n >= 1
       )
 ```
 4. Runtime of 'max' for n numbers: T(n) -- we care about the worst possible scenario. 
+T(1) = O(1)
+T(n) = T(n-1) + O(1) -- recursive description of running time
+     = (T(n-2) + O(1)) + O(1)
+     ...
+     = O(1) + O(1) + ... + O(1) -- O(1) n times
