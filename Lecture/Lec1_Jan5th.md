@@ -46,9 +46,9 @@ T(n) = T(n-1) + O(1) -- recursive description of running time
 - [IS] Finally, assuming the step 1 & 2, apply the "Inductive Steps" to show the algorithm is correct for k. 
 
 
-### In-class Exercise 
+### In-class Exercise 1
 
-#### Question: In how many different ways I can cover a (1xn) array with 1x1 and 1x2?
+#### Question: In how many different ways to fill a (1xn) array with 1x1 and 1x2 tiles?
 Suggested approach: 
 1. When n = 1: there is 1 way (1)
 2. When n = 2: there are 2 ways (1+1, 2)
@@ -80,3 +80,7 @@ T(n) >= 2T(n-2) + O(1)
    
 This algorithm grows exponentially and is very slow.
 ```
+### In-class Exercise 2
+
+#### Question: In how many different ways to cover a (2^n)x(2^n) grid with one missing square at the corner?
+Break down into four pieces. One of the piece containing a tile is identical to the one-step smaller problem. Then with the remaining three chuncks, you can fill them out and collect the three empty tiles to create a block. 
