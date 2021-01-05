@@ -50,5 +50,16 @@ T(n) = T(n-1) + O(1) -- recursive description of running time
 
 #### Question: In how many different ways I can cover a (1xn) array with 1x1 and 1x2?
 Suggested approach: 
-1. When n = 1: there is 1 way 
-2. When n = 3: ther are three ways (1+2, 2+1, 1+1+1)
+1. When n = 1: there is 1 way (1)
+2. When n = 2: there are 2 ways (1+1, 2)
+3. When n = 3: there are 3 ways (1+2, 2+1, 1+1+1)
+...
+4. When n = k: Tile(k) = Tile(k-1) + Tile(k-2)
+
+``` codeblock
+Count(n): 
+    if n is small 
+    ...
+    else
+        return Count(n-1) + Count(n-2)
+ ```
