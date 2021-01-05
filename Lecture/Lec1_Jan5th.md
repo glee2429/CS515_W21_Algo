@@ -53,7 +53,6 @@ Suggested approach:
 1. When n = 1: there is 1 way (1)
 2. When n = 2: there are 2 ways (1+1, 2)
 3. When n = 3: there are 3 ways (1+2, 2+1, 1+1+1)
-...
 4. When n = k: Tile(k) = Tile(k-1) + Tile(k-2)
 
 ``` codeblock
