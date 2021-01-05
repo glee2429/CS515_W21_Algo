@@ -21,7 +21,7 @@
 #### Prompt: To solve problem x on input of size n
 1. if n is 'small,' solve it directly.
 2. Otherwise, reduce the problem to smaller size problems of the git same type.
-3. Example:
+3. Example: find the maximum element in an array of the size n.
 ```Python
 max(A[1..n]) # Assume n >= 1
  if n = 1:
@@ -40,3 +40,4 @@ T(n) = T(n-1) + O(1) -- recursive description of running time
      ...
      = O(1) + O(1) + ... + O(1) -- O(1) n times
 ```
+5. Proof of Correctness
