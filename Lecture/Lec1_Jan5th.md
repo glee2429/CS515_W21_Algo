@@ -1,7 +1,7 @@
 ### 01/05/2021
-### Lecture 1 - Logistics & Course Overview
+## Lecture 1 - Logistics & Course Overview
 
-#### Key Concepts
+### Key Concepts
 
 1. Recursion
 - Divide & Conquer
@@ -15,10 +15,10 @@
 5. Linear Programming Algorithms
 6. Approximation Algorithms  
 
-#### Recursion
+### Recursion
 
-##### Motivation: can we reuse a small solution to solve a bigger problem?
-##### Prompt: To solve problem x on input of size n
+#### Motivation: can we reuse a small solution to solve a bigger problem?
+#### Prompt: To solve problem x on input of size n
 1. if n is 'small,' solve it directly.
 2. Otherwise, reduce the problem to smaller size problems of the git same type.
 3. Example:
