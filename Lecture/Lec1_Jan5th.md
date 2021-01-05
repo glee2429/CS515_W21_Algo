@@ -62,3 +62,21 @@ Count(n):
     else
         return Count(n-1) + Count(n-2)
  ```
+Running time: Let's say T(n) is the runtime of Count(n). 
+```
+T(1) = O(1)
+T(2) = O(1)
+T(n) = T(n-1) + T(n-2) + O(1)
+```
+Upper bound: 
+```
+T(n) <= T(n-1) + T(n-2)
+     <= 2T(n-1) 
+     <= 2(2T(n-2)) --- you reduce each step by one and multiply by 2
+     <= 2^n
+T(n) >= 2T(n-2) + O(1)
+     >= 2T(n-2) 
+     >= 2^(n/2)
+   
+This algorithm grows exponentially and is very slow.
+```
