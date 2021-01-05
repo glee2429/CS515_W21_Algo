@@ -1,7 +1,8 @@
 January 5th, 2021
 Lecture 1 - Logistics
 
-#### <Key Concepts>
+#### Key Concepts
+
 1. Recursion
 - Divide & Conquer
 - Dynamic Programming
