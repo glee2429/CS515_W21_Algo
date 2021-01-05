@@ -44,3 +44,11 @@ T(n) = T(n-1) + O(1) -- recursive description of running time
 - [BC] First, start with "the base cases" and show they are correct to show the smallest unit of your solution is valid.
 - [IH] Then, define "Inductive Hypothesis" to show that the algorithm is correct for n is smaller than k (n<k). 
 - [IS] Finally, assuming the step 1 & 2, apply the "Inductive Steps" to show the algorithm is correct for k. 
+
+
+### In-class Exercise 
+
+#### Question: In how many different ways I can cover a (1xn) array with 1x1 and 1x2?
+Suggested approach: 
+1. When n = 1: there is 1 way 
+2. When n = 3: ther are three ways (1+2, 2+1, 1+1+1)
