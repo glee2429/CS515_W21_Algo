@@ -21,3 +21,14 @@
 ##### Prompt: To solve problem x on input of size n
 1. if n is 'small,' solve it directly.
 2. Otherwise, reduce the problem to smaller size problems of the git same type.
+3. Example:
+```Python
+max(A[1..n]) # Assume n >= 1
+ if n = 1:
+    return A[1]
+ else
+    maxOfTwo(
+      max(A[1,...,n-1]),
+      A[n]
+      )
+```
