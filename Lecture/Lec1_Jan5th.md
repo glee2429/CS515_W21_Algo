@@ -32,3 +32,4 @@ max(A[1..n]) # Assume n >= 1
       A[n]
       )
 ```
+4. Runtime of 'max' for n numbers: T(n) -- we care about the worst possible scenario. 
