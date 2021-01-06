@@ -1,4 +1,4 @@
-### 01/05/2021
+# January 5th, 2021
 ## Lecture 1 - Logistics & Course Overview
 
 ### Key Concepts
