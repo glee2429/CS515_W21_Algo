@@ -94,3 +94,49 @@ Algorithm:
   - Place a ㄴ to intersect those remaining smaller grids. 
   - Recursively tile the rest. 
  ```
+
+## Lecture 2 - Recursion Continued (01/07/2021) 
+
+### Tower of Hanoi w/ Three Poles
+#### Rules
+1. Move one disk at a time.
+2. Never place a disk on a smaller disk.
+
+#### Hint
+- Ignore the largest disk.
+
+Hanoi Tower Algorithm
+```
+Hanoi (n, src, dst, tmp)
+ if n > 0:
+    Hanoi(n-1, src, tmp, dst) --> Recursive call #1
+    move n to dst
+    Hanoi(n-1, tmp, dst, src) --> Recursive call #2
+```
+
+The number of moves to solve the puzzle
+
+This is basically a preliminary attempt to solve running time.
+```
+T(n) = # of moves for n disks. -- Due to recursion in the algorithm, it will involve T(n-1).
+
+T(0) = 0 
+T(n) = T(n-1) + 1 T(n-1) 
+     = 2T(n-1) + 1       --> Two recursive calls #1 & #2
+```
+
+##### Recursion Tree to Find Rnning Time 
+```
+                            Total # of Work in Each Level
+        n                       1
+       /  \
+     n-1  n-1                   2
+    / \    / \
+  n-2 n-2 n-2 n-2               4
+  / \ / \ / \ / \
+       
+       ...                   Until the last level reaches 1.
+  
+Each branch has "1" as the amount of work required. 
+If you add all of the total amount of work required in each level, it will be {1+2+2^2+...2^(n-1)} = 2^n-1
+```
