@@ -97,7 +97,7 @@ Algorithm:
 
 ## Lecture 2 - Recursion Continued (01/07/2021) 
 
-### Tower of Hanoi w/ Three Poles
+### Q1. Tower of Hanoi w/ Three Poles
 #### Rules
 1. Move one disk at a time.
 2. Never place a disk on a smaller disk.
@@ -140,3 +140,75 @@ T(n) = T(n-1) + 1 T(n-1)
 Each branch has "1" as the amount of work required. 
 If you add all of the total amount of work required in each level, the running time will be {1+2+2^2+...2^(n-1)} = 2^n-1
 ```
+
+
+### Q2. Pancake Sorting
+Given a stack of pancakes of different sizes & flip operations 
+
+* Flip operation: flip(k): flip the order of the *top* pancakes (using a spatula).
+
+* Link: https://en.wikipedia.org/wiki/Pancake_sorting
+
+#### Hint 
+Place the largest piece at the bottom. Then, the problem space is reduced by 1. 
+Solve the remainder recursively by breaking down into smaller chuncks. 
+
+
+Algorithm
+
+- Find *k*, the index of the largest piece (target).
+- Then, flip(k) so the largest piece can be placed on the top.
+- Now that the maximum is at the top, flip the entire stack by flip(n). This step will result in the largest piece at the bottom.
+```
+Pancake(n)
+    if n > 1:
+       k <- index_of_the_target_pancake
+       flip(k)  # after this step, the largest piece is on the top
+       flip(n)  # after this step, the largest piece is at the bottom
+       Pancake(n-1)
+```
+Runtime Analysis: How many moves "pancake" algorithm uses to sort pancakes?
+
+```
+T(n) : # of moves for a stack of size n 
+T(n) = 2 + T(n-1)
+T(1) = 0   
+
+Given the lines above, T(n) = 2(n-1)
+```
+
+### Q3. Sorting 
+```
+InsSort(A[1...n]): 
+   if n > 1:
+      InsSort(A[1...n-1])
+      InsSort A[n] to A[1...n-1]
+```
+
+#### Exercise: Write algo for inserting A[n] into A[1...n-1] that does it in O(n) time.
+
+Runtime Analysis:
+```
+T(n): Running time of InsSort for n numbers.
+T(1) = O(1)
+T(n) = T(n-1) + O(n)
+
+
+  o----o----o---- ... ----o
+ n    n-1   n-2           1
+O(n) O(n-1) O(n-2)      O(1)
+
+T(n) = O(n)+...+O(1)
+     = O(n+...+1)
+     = O(n(n+1)/2)
+     = O(n^2)
+```
+(Assumption: shifting occurs in a linear time. Thus, we don't consider it in the RT complexity.)
+
+##### Improvement: let's rewrite the algorithm to reduce the RT
+
+Given an array with n elements, 
+- Previously, breaking the array into A_1 with (n-1) elements and A_2 with 1 element. 
+- Now, let's apply *Merge Sort* by breaking the array into A_3 with roughly (n/2) elements and A_4 with roughly (n/2) elements. 
+
+Basically, we break down the array into two arrays of roughly the same size. This will reduce the problem space.
