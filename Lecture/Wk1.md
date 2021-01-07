@@ -125,7 +125,7 @@ T(n) = T(n-1) + 1 T(n-1)
      = 2T(n-1) + 1       --> Two recursive calls #1 & #2
 ```
 
-##### Recursion Tree to Find Rnning Time 
+##### Recursion Tree to Find Rnning Time Analysis
 ```
                             Total # of Work in Each Level
         n                       1
@@ -135,8 +135,8 @@ T(n) = T(n-1) + 1 T(n-1)
   n-2 n-2 n-2 n-2               4
   / \ / \ / \ / \
        
-       ...                   Until the last level reaches 1.
+        ...                     Until the last level reaches 1.
   
 Each branch has "1" as the amount of work required. 
-If you add all of the total amount of work required in each level, it will be {1+2+2^2+...2^(n-1)} = 2^n-1
+If you add all of the total amount of work required in each level, the running time will be {1+2+2^2+...2^(n-1)} = 2^n-1
 ```
