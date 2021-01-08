@@ -178,6 +178,8 @@ Given the lines above, T(n) = 2(n-1)
 ```
 
 ### Q3. Sorting 
+
+Insertion Sort of A[1...n] with A[1...n-1] to A[n]
 ```
 InsSort(A[1...n]): 
    if n > 1:
@@ -212,3 +214,32 @@ Given an array with n elements,
 - Now, let's apply *Merge Sort* by breaking the array into A_3 with roughly (n/2) elements and A_4 with roughly (n/2) elements. 
 
 Basically, we break down the array into two arrays of roughly the same size. This will reduce the problem space.
+
+
+Merge Sort of A[1...n] with A[1...n/2] and A[1...n/2]
+```
+MergeSort(A[1...n]):
+       if n > 1:                      --> O(1)
+          m = rounded(n/2)            --> O(1)
+          MergeSort(A[1...m])         --> Recursive Call #1 with T(n/2)
+          MergeSort(A[m+1...n])       --> Recursive Call #2 with T(n/2)
+          Merge(A[1...m], A[m+1...n]) --> Constant operation O(n)
+```
+
+#### Exercise: implement MergeSort in O(n) time.
+
+```
+T(1) = O(1)
+T(n) = 2T(n/2) + O(n)
+
+      n              O(n)
+     /  \
+   n/2   n/2         O(n/2) + O(n/2)
+  /   \  /  \
+n/4  n/4             O(n/4) + O(n/4) + O(n/4) + O(n/4) 
+     ...
+     
+     
+```
+
+General rule of thumb: when breaking down a problem space, it's beneficial to break down into small problems with similiar sizes.
