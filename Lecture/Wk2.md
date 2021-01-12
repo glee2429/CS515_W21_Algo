@@ -1,6 +1,6 @@
 # CS 515 Algorithms + Data Structructures
 ## Week 2 - Recursion / Divide & Conquer (1/12/2021)
-### Question: Multiplication algorithm 
+### Question 1: Modified multiplication algorithm fo improved efficiency
 #### Condition: 
 - Input: x[1,...,n], y[1,...,n]
 - Output: z = x*y
@@ -31,5 +31,42 @@ Mult(x[1,...,n],y[1,...,n]):
       return 10^2m*e + 10^m*(g+h) + f...
 ```
 #### Assumption: n is a power of 2. 
+#### Complexity Analysis
 ```
 The number of opeartion needed: T(n) = 4T(n/2) + O(n)
+
+           o   ------ n, O(n)
+       / /  \  \
+     o  o   o   o --- n/2, O(n/2) for each node, 4 nodes in total  
+   //\\//\\//\\//\\
+  oooo oooooooo oooo- n/4, O(n/4) for each node, 16 nodes in total 
+       
+  
+Therefore, T(n) = O(n) + 2^2O(n/2) + 2^4O(n/2^2) + ...
+                = O(n)(1+2+2^2+...+2^h) (where h is the height of the tree, h = log n)
+                = O(n) * O(2^h)
+                = O(n) * O(2^(logn) = O(n^2)
+```
+As a result, the modified Mult algorithm fails to improve the time complexity. 
+
+### Reduce the number of recursion to speed up the Mult algorithm 
+Problem: in the previous example, we had to recurse 4 times, which increases the time complexity. 
+#### Let's assume we're recursing only three times, not four times. 
+Time complexity analysis 
+```
+Solve T(n) = 3T(n/4) + O(n)
+
+           o   ------ n, O(n)
+        /  \  \
+      o   o   o --- n/2, O(n/2) for each node, 3 nodes in total: 3O(n/2)
+   /\\/\\ /\\ /\\
+  ooo ooo ooo ooo- n/4, O(n/4) for each node, 9 nodes in total 
+  
+  until the tree reaches the last level 
+
+T(n) = O(n) (1+(3/2)+(3/2)^2+..(3/2)^h)
+```
+
+### Question 2: Selection Algorithm 
+#### Condition :
+- Select (A[1...n],k)
