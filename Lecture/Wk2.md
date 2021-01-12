@@ -31,4 +31,5 @@ Mult(x[1,...,n],y[1,...,n]):
       return 10^2m*e + 10^m*(g+h) + f...
 ```
 #### Assumption: n is a power of 2. 
-
+```
+The number of opeartion needed: T(n) = 4T(n/2) + O(n)
