@@ -161,3 +161,36 @@ SS(n,T): True if and only if for a, subset of A[1...n] with toal of T.
 2. Case 2: suppose that the subset above does contain A[n]. SS(n,T) = SS(n-1, T-A[n]); 
 
 Basically, SS(n,T) = SS(n-1,T) or SS(n-1,T-A[n]).
+
+```
+If n = 0 # Base case
+  return [T==0]
+Else
+  SS(n,T) = SS(n-1, T) OR SS(n-1, T-A[n]) # Logical operator OR -- we just need one TRUE 
+```
+
+#### Dynamic Programming Applied 
+
+-> Let's memoize to avoid computing the same cell twice. 
+
+```
+              
+     0 1 ...    i        n
+    ----------------------
+  0 |T                   |
+  1 |F                   |
+    |                    |
+    |                    |
+    |                    |
+  T |F                   |
+    ----------------------
+    
+for t =1 to T 
+  S[t,0] = F
+  S[0,0] = T
+for i=1 to n
+  for t = 0 to T
+    S[t,i] = S[t, i-1] OR [T>=A[i] and S[t-A[i], i-1]]
+ ```
+ 
+ ##### Running time: O(n*T)
