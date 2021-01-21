@@ -79,7 +79,7 @@ LIS(A[1...n]) = longest increasing subseq of A[1...n-1] with all element is equa
 
 ## Dynamic Programming Continued (1/21/2021) 
 
-#### Exercise: Edit distance
+### Q1. Edit distance
 - Intput: A[1...n], B[1...n]
 - Output: edit ditsance of A and B with minimum number of operations (e.g., Delete, Insert, Substitute) to transfer A to B. 
 - Example: 
@@ -150,4 +150,14 @@ There are two for loops and the inside of them is constant.
 
 #### Extra point: modify the algorithm to work with O(min(n,m)) space. 
 
+### Q2. Subset Sum 
+- Input: A[1..n] all positive numbers, T is a positive number
+- Output: True if there is a subset of A whose sum is T, False otherwise.
+- Example: A[1, 5, 7, 22, 53, 58], T = 61, The algorithm returns True. 
 
+#### Algorithm Design 
+SS(n,T): True if and only if for a, subset of A[1...n] with toal of T. 
+1. Case 1: suppose that the subset above does not contain A[n]. SS(n,T) = SS(n-1,T)
+2. Case 2: suppose that the subset above does contain A[n]. SS(n,T) = SS(n-1, T-A[n]); 
+
+Basically, SS(n,T) = SS(n-1,T) or SS(n-1,T-A[n]).
