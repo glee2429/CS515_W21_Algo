@@ -76,3 +76,78 @@ LIS(A[1...n]) = LIS(A[1...n-1])
 Case 2: A[n] is in LIS: 
 
 LIS(A[1...n]) = longest increasing subseq of A[1...n-1] with all element is equal to or smaller than A[n].
+
+## Dynamic Programming Continued (1/21/2021) 
+
+#### Exercise: Edit distance
+- Intput: A[1...n], B[1...n]
+- Output: edit ditsance of A and B with minimum number of operations (e.g., Delete, Insert, Substitute) to transfer A to B. 
+- Example: 
+```
+Given A: MONEY, B: FOOD.
+To transform A to B, 
+MONEY -> (substitue Y with D)  -> MONED 
+      -> (delete E)            -> MON_D 
+      -> (substitue N with O)  -> MOO_D 
+      -> (substitute M with F) -> FOO_D
+```
+
+##### Algorithm Design 
+ED[m,n]: the edit distance of A[1...m], B[1...n].
+
+1. delete A[m]: ED[m,n] = ED[m-1,n]+1
+2. Insert a character in the end ED[m,n] = ED[m,n-1]+1
+3. Substitute A[m] with B[n] ED[m,n] = ED[m-1,n-1]+1
+4. Match A[m] and B[n] if A[m]==B[n], ED[m,n] = ED[m-1,n-1]
+
+Basically, look at the rightmost element in the array. 
+
+```
+if m = 0: ED[m,n] = n
+if n = 0: ED[m,n] = m
+if m, n > 0: ED[m,n] = min {ED[m-1,n]+1, ED[m,n-1]+1, ED[m-1,n-1]+1, ED[m-1,n-1] if A[m] == B[n]}
+```
+
+##### Dynamic Programming Approach Applied 
+-> Memoization 
+```
+              A
+     0 1 ...            m
+    ----------------------
+  0 |0 1                m|
+  1 |                    |
+B   |                    |
+    |                    |
+  n |n                   |
+    ----------------------
+    
+for j = 1 to m: ED[0,j] = j
+for i = 1 to n: ED[i,0] = i
+for i = 1 to n 
+    for j = 1 to m
+      ED[i,j] = min {
+                     ED[m-1,n]+1, 
+                     ED[m,n-1]+1, 
+                     ED[m-1,n-1]+1, 
+                     ED[m-1,n-1] if A[m] == B[n] -- if it's same, then take the diagonal value.
+                     }
+ ```
+ Let's apply this to our example. A: MONEY & B: FOOD 
+ ```
+     0 F O O D
+    -----------
+  0 |0 1 2 3 4|
+  M |1 1 2 3 4|
+  O |2 2 1 2 3| -- O & O are the same. 
+  N |3 3 2 2 3|
+  E |4 4 3 3 3| -- E & F are different.
+  Y |5 5 4 4 4|
+    -----------
+```
+##### Running time: O(nm)
+##### Space requirement: O(nm)
+There are two for loops and the inside of them is constant.
+
+#### Extra point: modify the algorithm to work with O(min(n,m)) space. 
+
+
