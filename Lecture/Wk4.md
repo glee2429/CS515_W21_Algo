@@ -1,7 +1,7 @@
 ## CS 515 Algorithms  
 ### Week 4: Dynamic Programming in Trees
 
-#### Problem Setting -- Find the Maximum "Independent Set" of nodes in a tree
+#### Problem Setting: Find the Maximum "Independent Set" of nodes in a tree
 * Input: a tree
 * Output: the size of the largest indepedent set, a set of vertices that contain NO adjacent pair of vertices.
 
@@ -93,3 +93,40 @@ G_1  o    {} {} {}
          
 MIS[r] = 1 + SUM of MIS of *grandchildren* of r.
 ```
+
+
+#### Algorithm Design 
+
+```
+MIS(v):
+if v is NULL:
+      return 0
+else 
+      return max(
+            SUM of MIS of children, 
+            1+SUM of MIS of grandchildren
+            )
+```
+
+However, is it the optimal solution? In fact, there are redundancies. To avoid this, we can use memoization. 
+
+#### Algorithm Optimization by Memoization 
+
+##### How to: 
+- Add one parameter, MIS, to each node of the tree, which is initially None. 
+- Modify the algorithm design.
+
+```
+MIS(v):
+if v.mis is None:
+      if v is NULL:
+            return 0
+      else 
+            v.mis = max(
+                  SUM of MIS of children, 
+                  1+SUM of MIS of grandchildren
+                  )
+return v.mis
+```
+
+##### Running time: 
