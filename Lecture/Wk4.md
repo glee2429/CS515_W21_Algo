@@ -134,9 +134,11 @@ Example
 
 
 ```
-##### Running time: 
+##### Running time of Recursive Algorithm:
 
 Generally, RT is the product of (# of different problems) and (Non-recursive work).
 In the worst case, the total number of computation is counting the number of all children and grandchildren multiplied by recursive calls. Therefore, RT(n) = n O(n)=O(n^2).
 
+##### Running time of Memoization Algorithm:
 
+In this case, we will memoize each node and we can refer to them only once after the table is filled out. Therefore, the actual running time is O(n).
