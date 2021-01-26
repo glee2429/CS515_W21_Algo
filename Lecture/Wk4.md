@@ -114,7 +114,7 @@ However, is it the optimal solution? In fact, there are redundancies. To avoid t
 
 ##### How to: 
 - Add one parameter, MIS, to each node of the tree, which is initially None. 
-- Modify the algorithm design.
+- Modify the algorithm design to fill out the memoization table.
 
 ```
 MIS(v):
@@ -128,5 +128,15 @@ if v.mis is None:
                   )
 return v.mis
 ```
+Example
+```
 
+
+
+```
 ##### Running time: 
+
+Generally, RT is the product of (# of different problems) and (Non-recursive work).
+In the worst case, the total number of computation is counting the number of all children and grandchildren multiplied by recursive calls. Therefore, RT(n) = n O(n)=O(n^2).
+
+
