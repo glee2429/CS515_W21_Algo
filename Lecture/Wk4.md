@@ -194,7 +194,31 @@ G = (V,E) where G is directed, and G does not have a directed cycle.
 
 ##### Dynamic Programming and Tological Sort are interchangeable. 
 
-#### The Longest Path in a DAG 
+#### Example: The Longest Path in a DAG 
 - Input: a DAG, G=(V,E)
 - Output: the length of the longest path in G.
 
+##### Problem setting: 
+```
+Let v_1, v_2, ..., v_n be a topological sort of V. 
+
+LP(i) = the longest path that end at the vertext i, v_i. 
+
+Longest path of G = max(LP(i)) where i is between 1 and n. 
+```
+To find out the longest path to v_i, we need to look at the connected vertices right before vertext i. 
+```
+LP(i) = max(LP(j)+1) where j is connected to i and j < i.
+
+The reason we do "+1" is that the vertext of interest is connected to the adjacent vertices we're calculating, so we need to add one to consider the edge connecting j and i.
+```
+Once we define the topological sort, we can go from left to right.
+
+##### DAG Example
+
+```
+LP(i) = max(LP(j)+1) where j is connected to i and j < i.
+
+
+o
+LP(i) 
