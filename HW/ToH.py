@@ -10,4 +10,4 @@ def TowerOfHanoi(n , from_rod, to_rod, aux_rod):
 
 # Driver code
 n = 4
-TowerOfHanoi(n, 'A', 'C', 'B') 
+TowerOfHanoi(n, '0', '2', '1') 
