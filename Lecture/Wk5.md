@@ -1,7 +1,7 @@
 ## Randomized Algorithms
 
 #### Problem setting: BoH and Nuts
-- Input: B is a bolt, N_1,...,N_n are n nuts 
+- Input: B is a bolt, N_1,...,N_n are n nuts (unsorted).
 - Operations: test B & N_i -- there are three cases {B > N_i} or {B < N_i} or {B = N_i}
 - Assumption: there is exactly one nut that matches B. 
 - Output: the nut that matches B. 
