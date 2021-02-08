@@ -1,5 +1,8 @@
-# LDS returns length of the longest
-# decreasing subsequence in arr of size n
+# DYNAMIC PROGRAMMING
+# 1. Program description: compute the length of the longest decreasing subsequence in arr of size n
+# Input: array
+# Output: length of the longest decreasing subsequence
+
 def LDS(arr):
     n = len(arr)
 
@@ -11,7 +14,7 @@ def LDS(arr):
     for i in range (1 , n):
         for j in range(0 , i):
             if arr[i] < arr[j] and LDS[i] < LDS[j] + 1 :
-                LDS[i] = LDS[j]+1
+                LDS[i] = LDS[j] + 1
 
     # Initialize maximum to 0 to get
     # the maximum of all LDS
@@ -22,3 +25,5 @@ def LDS(arr):
         maximum = max(maximum , LDS[i])
 
     return maximum
+
+# 2. Time complexity: 
