@@ -6,6 +6,8 @@
 #    Belman Fod works for such cases and it's simpler.
 #    On the other hand, when you compute the time complexity, Dijkstra is O(VlogV) but Belman Ford is O(VE).
 
+# Q: What are other differences between Dijkstra and Belman-Ford?
+# A: 
 # Class to represent a graph
 class Graph:
 
@@ -69,4 +71,4 @@ g.addEdge(3, 1, 1)
 g.addEdge(4, 3, -3)
 
 # Print the solution
-g.BellmanFord(0)  
+g.BellmanFord(0)

@@ -3,6 +3,9 @@
 # Input: array
 # Output: length of the longest decreasing subsequence
 
+# arr = [0, 5, 7]
+# arr2 = [3, 2, 7, 1, 0]
+
 def LDS(arr):
     n = len(arr)
 
@@ -26,4 +29,4 @@ def LDS(arr):
 
     return maximum
 
-# 2. Time complexity: 
+# 2. Time complexity: There are two inner loops, O(n^2).
